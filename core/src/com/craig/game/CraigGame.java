@@ -3,6 +3,7 @@ package com.craig.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.craig.game.state.State;
+import com.craig.game.state.instances.Test;
 
 public class CraigGame extends Game {
 	public SpriteBatch Batch;
@@ -10,7 +11,7 @@ public class CraigGame extends Game {
 	@Override
 	public void create () {
 		Batch = new SpriteBatch();
-		setScreen(new State(this));
+		setScreen(new Test(this));
 	}
 
 	@Override
@@ -21,5 +22,14 @@ public class CraigGame extends Game {
 	@Override
 	public void dispose () {
 		Batch.dispose();
+	}
+
+	/**
+	 * changes the current state
+	 * @param target state to change to
+	 */
+	public void switchState(State target)
+	{
+		setScreen(target);
 	}
 }

@@ -22,15 +22,14 @@ public class State implements Screen {
     {
         Parent = parent;
         Members = new Array<CSprite>();
-
-        Members.add(new CSprite(new Texture("badlogic.jpg"), 0, 0, 256, 256));
-        Members.add(new CSprite(new Texture("badlogic.jpg"), 400, 0, 256, 256));
     }
 
     @Override
     public void render(float delta)
     {
-        Gdx.gl.glClearColor(1f, 0.2f, 0.2f, 1);
+        update(delta);
+
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         Parent.Batch.begin();
@@ -91,5 +90,10 @@ public class State implements Screen {
     public Boolean remove(CSprite target)
     {
         return Members.removeValue(target, true);
+    }
+
+    public void update(float time)
+    {
+
     }
 }
